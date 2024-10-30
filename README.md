@@ -32,7 +32,7 @@ To get this demo up and running, follow these steps:
 Use Docker Compose to build and start the services defined in the `docker-compose.yml`:
 
 ```bash
-    docker-compose up --build
+    docker compose up --build
 ```
 
 This command builds the Docker image and starts the services defined, including the application and the database.
