@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: tx-extension-clip
+Version: 0.2.5
+Summary: Python Library for Threat Exchange CLIP Extension
+Home-page: https://github.com/TechnologyCoalitionOrg/tx-extension-clip
+Author: Technology Coalition Org
+Author-email: tech@technologycoalition.org
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+CLIP Extension for Threat Exchange
+
+https://github.com/TechnologyCoalitionOrg/tx-extension-clip
+
+# Threat Exchange
+
+https://github.com/facebook/ThreatExchange
+
+# Installing
+
+https://pypi.org/project/tx-extension-clip/
+
+```
+pip install tx-extension-clip
+```
+
+# What is CLIP?
+CLIP (Contrastive Language–Image Pre-training)
+Model built by OpenAI: https://openai.com/research/clip
+
+https://github.com/openai/CLIP
