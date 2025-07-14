@@ -16,6 +16,7 @@ services:
     environment:
       <<: *postgres-variables
       OMM_CONFIG: /build/omm_config.py
+      UI_ENABLED: True
     depends_on:
       - db
     networks:
