@@ -43,7 +43,7 @@ The `omm_config.py` file in the build directory is essential for the application
 
 ### Using the Demo
 
-With the services running, you can interact with the HMA-CLIP extension through the REST API. The application is available at http://localhost:5000/, and API usage details are documented within the HMA repository.
+With the services running, you can interact with the HMA-CLIP extension through the REST API. The application is available at http://localhost:5005/, and API usage details are documented within the HMA repository.
 
 ### Contributions and Feedback
 
