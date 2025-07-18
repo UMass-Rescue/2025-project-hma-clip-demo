@@ -12,14 +12,15 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - 5000:5000
+      - 5005:5000
     environment:
       <<: *postgres-variables
       OMM_CONFIG: /build/omm_config.py
+      UI_ENABLED: True
     depends_on:
       - db
     networks:
-      - backend
+      - shared-hma-network
     command: >
       bash -c "MIGRATION_COMMAND=1 flask --app OpenMediaMatch.app db upgrade --directory OpenMediaMatch/migrations 
       && MIGRATION_COMMAND=0 flask --app OpenMediaMatch.app run --host=0.0.0.0 --debug"
@@ -34,11 +35,11 @@ services:
     environment:
       <<: *postgres-variables
     networks:
-      - backend
+      - shared-hma-network
 
 volumes:
   postgres-data:
 
 networks:
-  backend:
-    driver: bridge
+  shared-hma-network:
+    external: true
