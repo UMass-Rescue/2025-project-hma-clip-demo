@@ -4,8 +4,8 @@ x-postgres-variables: &postgres-variables
   POSTGRES_USER: media_match
   # TODO: Use a secret instead.
   POSTGRES_PASSWORD: hunter2
-  POSTGRESS_HOST: db
-  POSTGRESS_DBNAME: media_match
+  POSTGRES_HOST: db
+  POSTGRES_DBNAME: media_match
 
 services:
   app:
@@ -17,13 +17,15 @@ services:
       <<: *postgres-variables
       OMM_CONFIG: /build/omm_config.py
       UI_ENABLED: True
+      PYTHONPATH: /build/ThreatExchange/hasher-matcher-actioner/src
     depends_on:
       - db
     networks:
       - shared-hma-network
     command: >
-      bash -c "MIGRATION_COMMAND=1 flask --app OpenMediaMatch.app db upgrade --directory OpenMediaMatch/migrations 
-      && MIGRATION_COMMAND=0 flask --app OpenMediaMatch.app run --host=0.0.0.0 --debug"
+      bash -c "cd /build/ThreatExchange/hasher-matcher-actioner && 
+      MIGRATION_COMMAND=1 python -m flask --app OpenMediaMatch.app db upgrade --directory src/OpenMediaMatch/migrations 
+      && MIGRATION_COMMAND=0 python -m flask --app OpenMediaMatch.app run --host=0.0.0.0 --debug"
 
   db:
     image: postgres:latest
