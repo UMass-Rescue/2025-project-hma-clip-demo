@@ -18,7 +18,7 @@ RUN cd ThreatExchange && pip install -e ./python-threatexchange
 
 RUN cd ThreatExchange/hasher-matcher-actioner && pip install -e .
 
-RUN git clone https://github.com/UMass-Rescue/tx-extension-clip.git && \
+RUN git clone -b main https://github.com/UMass-Rescue/tx-extension-clip.git && \
     pip install -e ./tx-extension-clip
 
 RUN threatexchange config extensions add tx_extension_clip
