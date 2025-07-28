@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone -b main https://github.com/UMass-Rescue/ThreatExchange.git
+RUN git clone -b get-signal-from-contentid https://github.com/UMass-Rescue/ThreatExchange.git
 
 RUN cd ThreatExchange && pip install -e ./python-threatexchange
 
