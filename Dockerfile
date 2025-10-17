@@ -35,6 +35,16 @@ RUN set -eux; \
 RUN git clone -b threshold_eval https://github.com/UMass-Rescue/tx-extension-clip.git && \
     pip install -e ./tx-extension-clip
 
+# -----------------------------------------------------------------------------
+# Patch: Increase CLIP distance threshold to enable distance-based matching
+# -----------------------------------------------------------------------------
+# The default threshold of 0.1 is too restrictive and only allows exact matches.
+# Setting it to 2.0 (maximum cosine distance) enables all hashes to match all banks
+# and display their actual distance values for transparency.
+#
+RUN sed -i "s/CLIP_DISTANCE_THRESHOLD: float = 0.1/CLIP_DISTANCE_THRESHOLD: float = 2.0/g" \
+    tx-extension-clip/tx_extension_clip/config.py
+
 RUN threatexchange config extensions add tx_extension_clip
 
 COPY omm_config.py /build/omm_config.py
